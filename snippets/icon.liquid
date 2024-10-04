@@ -1,0 +1,29 @@
+{%- comment -%}
+
+  props:
+    - name
+    - class
+
+{%- endcomment -%}
+
+{%- assign attributes = 'xmlns="http://www.w3.org/2000/svg" class="svg-icon svg-icon__' | append: name | append: ' ' | append: class | append: '"' -%}
+
+{%- case name -%}
+  {%- when 'star-golden' -%}
+    <svg {{ attributes }} viewBox="0 0 20 19" fill="none">
+      <path d="M9.55673 0L12.5094 5.94024L19.1135 6.89307L14.3345 11.5168L15.4632 18.0461L9.55673 14.9633L3.65027 18.0461L4.77891 11.5168L0 6.89307L6.60405 5.94024L9.55673 0Z"
+            fill="url(#paint0_linear_9203_14067)"/>
+      <defs>
+        <linearGradient id="paint0_linear_9203_14067" x1="0" y1="9.02306" x2="19.1135" y2="9.02306" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#CAA030"/>
+          <stop offset="0.440605" stop-color="#EFCD53"/>
+          <stop offset="0.925605" stop-color="#C29027"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  {%- when 'play' -%}
+    <svg {{ attributes }} viewBox="0 0 90 90" fill="none">
+      <circle cx="45" cy="45" r="45" fill="currentColor" fill-opacity="0.6"/>
+      <path d="M65.5547 45.0001L34.7279 63.4116L34.7279 26.5885L65.5547 45.0001Z" fill="currentColor"/>
+    </svg>
+{%- endcase -%}
