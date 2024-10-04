@@ -1,0 +1,131 @@
+{% liquid
+  assign sm_up = settings.breakpoint_small | plus: 1 | append: 'px'
+  assign md_up = settings.breakpoint_medium | plus: 1 | append: 'px'
+  assign lg_up = settings.breakpoint_large | plus: 1 | append: 'px'
+%}
+
+<style>
+  .advantages-section {
+      --background-image: url({{ section.settings.background_image | img_url: 'master' }});
+      background-image: var(--background-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      padding: 40px 20px;
+  }
+
+  .advantage-block {
+      flex: 1 1 165px;
+      align-self: start;
+  }
+  .advantage-block:not(:first-child) {
+      margin-left: 15px;
+
+      @media (min-width: {{ md_up }}) {
+          margin-left: 65px;
+      }
+  }
+  .advantage-block p {
+      line-height: 18px; /* 128.571% */
+      letter-spacing: 0.84px;
+  }
+  .advantage-block img {
+      width: auto;
+      height: 41px;
+  }
+
+  @media (min-width: {{ md_up }}) {
+      .advantages-heading {
+          font-size: 30px;
+          letter-spacing: 0.6px;
+          width: 228px;
+      }
+
+      .advantages-heading span {
+          color: {{ section.settings.highlight_color }};
+      }
+  }
+</style>
+
+<section class="advantages-section">
+  <div class="d-page-width d-flex d-flex-center-y d-flex-between">
+    <h2 class="advantages-heading d-visible-md_up d-text-robugrotesk d-line-height-1 d-text-bold d-text-white d-text-uppercase">
+      {% liquid
+        assign highlight_tag = '<span>' | append: section.settings.highlight | append: '</span>'
+      %}
+      {{ section.settings.title | replace: section.settings.highlight, highlight_tag }}
+    </h2>
+    {%- for block in section.blocks -%}
+      <div
+          class="advantage-block d-text-center {% if forloop.index > 2 and forloop.index < 5 %}d-visible-sm_up{% elsif forloop.index > 4 %}d-visible-md_up{% endif %}"
+          style="flex: 0 1 {{ block.settings.width }}px;"
+      >
+        {%-
+            render 'image-with-placeholder',
+            image: block.settings.icon,
+            width: 120
+        -%}
+        <p class="d-text-bold d-text-white d-text-small">{{ block.settings.text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advantages Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Banner Title",
+      "default": "HUMAN CUSTOMER SUPPORT.",
+      "info": "Visible only on desktop"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Highlight title text",
+      "default": "HUMAN",
+      "info": "This text will be highlighted in the banner title"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight color",
+      "default": "#C49229"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "advantages",
+      "name": "Advantages",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text",
+          "default": "Feature Text Here"
+        },
+        {
+          "type": "number",
+          "id": "width",
+          "label": "Width",
+          "default": 165
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

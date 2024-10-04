@@ -1,0 +1,116 @@
+{% liquid
+  assign md_up = settings.breakpoint_medium | plus: 1 | append: 'px'
+%}
+
+<style>
+    .lineup-section p {
+        color: #C49229;
+        margin-bottom: 30px;
+
+        @media (min-width: {{ md_up }}) {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .lineup-section .svg-icon__play {
+        width: 90px;
+
+        @media (min-width: {{ md_up }}) {
+            width: 153px;
+        }
+    }
+
+    .lineup-media {
+        height: 220px;
+
+        @media (min-width: {{ md_up }}) {
+            height: 400px;
+        }
+    }
+
+    .lineup-btn {
+        margin-top: 40px;
+
+        @media (min-width: {{ md_up }}) {
+            margin-top: 60px;
+        }
+    }
+</style>
+
+<section class="lineup-section d-section-padding d-text-center d-page-width">
+  <div class="d-heading-container">
+    <h2 class="d-section-heading d-text-boldest d-text-uppercase d-text-gotham">{{ section.settings.headline }}</h2>
+    <p class="d-text-medium">{{ section.settings.subheading }}</p>
+  </div>
+  <div class="lineup-media d-relative">
+    {%- if section.settings.video != blank -%}
+      <controlled-video>
+        {{- section.settings.video | video_tag: image_size: 'master', class: 'd-object-cover d-br-20 d-w-full d-h-full' -}}
+        <button
+            class="d-absolute d-absolute-centered"
+            data-play
+        >
+          {%- render 'icon', name: 'play', class: 'd-text-white' -%}
+        </button>
+      </controlled-video>
+    {%- elsif section.settings.video_url != blank -%}
+      <iframe
+          src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}"
+          title="{{ section.settings.headline }}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          class="d-w-full d-h-full"
+          allowfullscreen></iframe>
+    {%- else -%}
+      <div class="d-skeleton d-w-full d-h-full d-block!"></div>
+    {%- endif -%}
+  </div>
+  <a href="{{ section.settings.button_link }}" class="lineup-btn d-btn d-golden-btn">{{ section.settings.button_text }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "Product Lineup Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "MEET THE LINEUP"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The deepest culinary tool series on the planet. 100+ tools for every need, from kitchen to butchery to BBQ pit."
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Upload video",
+      "info": "If video is uploaded, video URL will be ignored"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "If video is uploaded, video URL will be ignored",
+      "accept": [
+        "youtube"
+      ]
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    }
+  ]
+}
+{% endschema %}
