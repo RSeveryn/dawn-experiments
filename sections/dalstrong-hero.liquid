@@ -1,0 +1,178 @@
+{% liquid
+  assign sm_up = settings.breakpoint_small | plus: 1 | append: 'px'
+  assign md_up = settings.breakpoint_medium | plus: 1 | append: 'px'
+  assign lg_up = settings.breakpoint_large | plus: 1 | append: 'px'
+%}
+
+<style>
+    .hero-section {
+        --hero-background-image: url({{ section.settings.background_image | img_url: 'master' }});
+
+        background-image: var(--hero-background-image);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 25px 25px 122px;
+        height: 603px;
+
+        @media (min-width: {{ md_up }}) {
+            --hero-background-image: url({{ section.settings.background_image_desktop | img_url: 'master' }});
+            padding: 0;
+            height: 580px;
+        }
+    }
+
+    .hero-headline {
+        margin-top: 15px;
+    }
+    .hero-headline--small {
+        font-size: 20px;
+    }
+    .hero-headline--big {
+        font-size: 36px;
+    }
+
+    .hero-subheading p {
+        font-size: 18px;
+        text-shadow: 0 50px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-btn {
+        margin-top: 20px;
+    }
+
+    @media (min-width: {{ md_up }}) {
+        .hero-content {
+            padding: 50px 60px 60px 170px;
+            background: linear-gradient(90deg, #000 10.23%, rgba(0, 0, 0, 0.00) 80.81%);
+            display: inline-flex;
+        }
+        .hero-logo {
+            width: 99px;
+        }
+        .hero-title {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .icon--header-star {
+            width: 20px;
+            margin-top: 5px;
+        }
+        .hero-headline--small, .hero-headline--big {
+            font-weight: 700;
+            line-height: 49px;
+        }
+        .hero-headline--small {
+            font-size: 30px;
+        }
+        .hero-headline--big {
+            font-size: 50px;
+        }
+        .hero-subheading {
+            margin-top: 10px;
+            max-width: 400px;
+        }
+        .hero-subheading p {
+            font-size: 24px;
+            line-height: 1.25;
+        }
+    }
+</style>
+
+<section class="hero-section">
+  <div class="hero-content d-text-center d-h-full d-flex d-flex-column">
+    {%- if section.settings.logo != blank -%}
+      {%-
+          render 'image-with-placeholder',
+          image: section.settings.logo,
+          width: 186,
+          widths: '62w, 99w',
+          sizes: '(min-width: 1025px) 99px, 62px',
+          class: 'hero-logo d-mx-auto'
+      -%}
+    {%- endif -%}
+
+    <div class="d-visible-md_up">
+      {%- if section.settings.desktop_title != blank -%}
+        <h1 class="hero-title d-text-uppercase d-text-white d-text-medium">
+          {{ section.settings.desktop_title }}
+        </h1>
+      {%- endif -%}
+
+      {%- for i in (1..5) -%}
+        {%- render 'icon', name: 'star-golden', class: 'icon--header-star d-inline-flex' -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.headline_small or section.settings.headline_big -%}
+      <h2 class="hero-headline d-text-uppercase d-text-white d-text-extra-bold d-text-robugrotesk">
+        <span class="hero-headline--small d-block">{{ section.settings.headline_small }}</span>
+        <span class="hero-headline--big d-block">{{ section.settings.headline_big }}</span>
+      </h2>
+    {%- endif -%}
+
+    <div class="hero-subheading d-mt-auto">
+      <p class="d-text-medium d-text-white">{{ section.settings.subheading }}</p>
+      <a href="{{ section.settings.button_link }}" class="hero-btn d-btn d-golden-btn">{{ section.settings.button_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner ",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "Background Image Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "desktop_title",
+      "label": "Desktop Title",
+      "default": "GLADIATOR SERIES™"
+    },
+    {
+      "type": "text",
+      "id": "headline_small",
+      "label": "Headline Small",
+      "default": "EMBRACE THE"
+    },
+    {
+      "type": "text",
+      "id": "headline_big",
+      "label": "Headline  Big",
+      "default": "DAILY GRIND"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The Heavyweight Professional Powerhouse Series"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    }
+  ]
+}
+{% endschema %}

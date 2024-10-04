@@ -1,0 +1,113 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "styles": {
+      "type": "dalstrong-styles",
+      "settings": {
+      }
+    },
+    "hero": {
+      "type": "dalstrong-hero",
+      "settings": {
+        "background_image": "shopify://shop_images/A042C691_240227XC_CANON.00_31_24_18.Still028_2_1_6c32274b-979b-45a3-8bf1-d69c4555b443.jpg",
+        "background_image_desktop": "shopify://shop_images/Header_Website_Video-V3_1_1.jpg",
+        "logo": "shopify://shop_images/gs.svg",
+        "desktop_title": "GLADIATOR SERIES™",
+        "headline_small": "EMBRACE THE",
+        "headline_big": "DAILY GRIND",
+        "subheading": "The Heavyweight Professional Powerhouse Series",
+        "button_link": "shopify://collections/all",
+        "button_text": "Shop Now"
+      }
+    },
+    "lineup": {
+      "type": "dalstrong-lineup",
+      "settings": {
+        "headline": "MEET THE LINEUP",
+        "subheading": "The deepest culinary tool series on the planet. 100+ tools for every need, from kitchen to butchery to BBQ pit.",
+        "video": "shopify://files/videos/h09df78cb_Six2580.mp4",
+        "video_url": "https://www.youtube.com/watch?v=PlS2loPlOks",
+        "button_link": "shopify://collections/all",
+        "button_text": "Shop Now"
+      }
+    },
+    "advantages": {
+      "type": "dalstrong-advantages",
+      "blocks": {
+        "advantages_Xhe9rY": {
+          "type": "advantages",
+          "settings": {
+            "icon": "shopify://shop_images/Group.svg",
+            "text": "OVER 1,000,000 KNIVES SOLD",
+            "width": 131
+          }
+        },
+        "advantages_VGgj9F": {
+          "type": "advantages",
+          "settings": {
+            "icon": "shopify://shop_images/Group_51.svg",
+            "text": "70 Day 100% MONEY BACK GAURANTEE",
+            "width": 110
+          }
+        },
+        "advantages_8AjMY7": {
+          "type": "advantages",
+          "settings": {
+            "icon": "shopify://shop_images/Group_1.svg",
+            "text": "CUSTOMER SERVICE SUPPORT",
+            "width": 162
+          }
+        },
+        "advantages_4J747r": {
+          "type": "advantages",
+          "settings": {
+            "icon": "shopify://shop_images/Frame.svg",
+            "text": "LIFETIME WARRANTY",
+            "width": 93
+          }
+        },
+        "advantages_WM4xnc": {
+          "type": "advantages",
+          "settings": {
+            "icon": "shopify://shop_images/Group_244.svg",
+            "text": "10 YEAR ANNIVERSARY",
+            "width": 116
+          }
+        }
+      },
+      "block_order": [
+        "advantages_Xhe9rY",
+        "advantages_VGgj9F",
+        "advantages_8AjMY7",
+        "advantages_4J747r",
+        "advantages_WM4xnc"
+      ],
+      "settings": {
+        "background_image": "shopify://shop_images/Rectangle_864_2.jpg",
+        "title": "HUMAN CUSTOMER SUPPORT",
+        "highlight": "HUMAN",
+        "highlight_color": "#C49229"
+      }
+    },
+    "scripts": {
+      "type": "dalstrong-scripts",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "styles",
+    "hero",
+    "lineup",
+    "advantages",
+    "scripts"
+  ]
+}

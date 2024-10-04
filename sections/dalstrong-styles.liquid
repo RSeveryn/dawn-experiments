@@ -1,0 +1,290 @@
+{% liquid
+  assign sm_up = settings.breakpoint_small | plus: 1 | append: 'px'
+  assign md_up = settings.breakpoint_medium | plus: 1 | append: 'px'
+  assign lg_up = settings.breakpoint_large | plus: 1 | append: 'px'
+%}
+
+<style>
+    /*  vars */
+    :root {
+
+    }
+
+    /*  fonts */
+    @font-face {
+        font-family: 'Gotham';
+        src: url('https://dalstrong.com/cdn/shop/files/gotham-book-webfont.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Gotham';
+        src: url('https://dalstrong.com/cdn/shop/files/gotham-bold-webfont.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Gotham';
+        src: url('https://dalstrong.com/cdn/shop/files/gotham-medium-webfont.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Gotham';
+        src: url('https://dalstrong.com/cdn/shop/files/Gotham-Black.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Robu Grotesk';
+        src: url('https://dalstrong.com/cdn/shop/files/robugrotesk-bold-webfont.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Robu Grotesk';
+        src: url('https://dalstrong.com/cdn/shop/files/robugrotesk-semi-webfont.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Robu Grotesk';
+        src: url('https://dalstrong.com/cdn/shop/files/robugrotesk-text-webfont.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Robu Grotesk';
+        src: url('https://dalstrong.com/cdn/shop/files/robugrotesk-extra-webfont.woff2') format('woff2');
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    /*  globals */
+    body, html {
+        font-family: 'Gotham', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (min-width: {{ settings.site_width }}px) {
+        .d-page-width {
+            max-width: {{ settings.site_width }}px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /*  framework */
+    .d-text-gotham {
+        font-family: 'Gotham', sans-serif;
+    }
+    .d-text-robugrotesk {
+        font-family: 'Robu Grotesk', sans-serif;
+    }
+    .d-text-center {
+        text-align: center;
+    }
+    .d-text-uppercase {
+        text-transform: uppercase;
+    }
+    .d-text-medium {
+        font-weight: 500;
+    }
+    .d-text-bold {
+        font-weight: 700;
+    }
+    .d-text-extra-bold {
+        font-weight: 800;
+    }
+    .d-text-boldest {
+        font-weight: 900;
+    }
+    .d-text-white {
+        color: white;
+    }
+    .d-text-small {
+        font-size: 14px;
+    }
+
+    .d-line-height-1 {
+        line-height: 1;
+    }
+
+    .d-h-full {
+        height: 100%;
+    }
+    .d-w-full {
+        width: 100%;
+    }
+
+    .d-block {
+        display: block;
+    }
+    .d-block\! {
+        display: block !important;
+    }
+    .d-flex {
+        display: flex;
+    }
+    .d-flex-center {
+        justify-content: center;
+        align-items: center;
+    }
+    .d-flex-center-x {
+        justify-content: center;
+    }
+    .d-flex-center-y {
+        align-items: center;
+    }
+    .d-flex-column {
+        flex-direction: column;
+    }
+    .d-flex-column-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .d-flex-between {
+        justify-content: space-between;
+    }
+
+    .d-mt-auto {
+        margin-top: auto;
+    }
+    .d-mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .d-visible-sm_up {
+        display: none;
+
+        @media (min-width: {{ sm_up }}) {
+            display: block;
+        }
+    }
+    .d-visible-md_up {
+        display: none;
+
+        @media (min-width: {{ md_up }}) {
+            display: block;
+        }
+    }
+    .d-visible-lg_up {
+        display: none;
+
+        @media (min-width: {{ lg_up }}) {
+            display: block;
+        }
+    }
+
+    .d-absolute {
+        position: absolute;
+    }
+    .d-relative {
+        position: relative;
+    }
+
+    .d-absolute-centered {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .d-object-cover {
+        object-fit: cover;
+    }
+
+    .d-br-20 {
+        border-radius: 20px;
+    }
+
+    /* components */
+    .d-section-padding {
+        padding: 40px 20px;
+        @media (min-width: {{ settings.site_width }}px) {
+            padding: 65px 0;
+        }
+    }
+
+    @media (min-width: 820px) {
+        .d-heading-container {
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .d-section-heading {
+        font-size: 30px;
+        margin-bottom: 10px;
+
+        @media (min-width: {{ md_up }}) {
+            font-size: 40px;
+        }
+    }
+
+    .d-skeleton {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 400%;
+        animation: skeleton 1.5s infinite linear;
+    }
+
+    /* buttons */
+    .d-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        padding: 0.625rem 1.25rem;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        line-height: 1;
+
+        transition: transform 0.3s;
+    }
+
+    .d-golden-btn {
+        background: linear-gradient(90.19deg, #58452A 0.16%, #E9D288 24.29%, #E9D288 75.77%, #58452A 99.84%);
+        text-transform: uppercase;
+        color: black;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        height: 48px;
+    }
+    .d-golden-btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* keyframes */
+    @keyframes skeleton {
+        0% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0 50%;
+        }
+    }
+
+</style>
