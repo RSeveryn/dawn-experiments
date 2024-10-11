@@ -1,0 +1,53 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "styles": {
+      "type": "binaery-styles",
+      "settings": {
+      }
+    },
+    "main": {
+      "type": "binaery-main",
+      "settings": {
+        "bg_animation_speed": 1.4,
+        "desktop_padding_top": 80,
+        "desktop_padding_right": 110,
+        "desktop_padding_bottom": 90,
+        "desktop_padding_left": 110,
+        "tablet_padding_top": 60,
+        "tablet_padding_right": 80,
+        "tablet_padding_bottom": 60,
+        "tablet_padding_left": 80,
+        "mobile_padding_top": 30,
+        "mobile_padding_right": 30,
+        "mobile_padding_bottom": 30,
+        "mobile_padding_left": 30,
+        "title": "Start making money from your returns.",
+        "subheading": "Built for Shopify merchants of all sizes.",
+        "button_link": "shopify://collections/all",
+        "button_text": "Install app now",
+        "button_icon": "shopify://shop_images/icons_1.svg",
+        "show_shopify_badge": true,
+        "product": "sweater-in-everyday-cotton"
+      }
+    },
+    "scripts": {
+      "type": "binaery-scripts",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "styles",
+    "main",
+    "scripts"
+  ]
+}

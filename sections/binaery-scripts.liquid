@@ -1,0 +1,30 @@
+<script>
+  {% comment %}
+    Image moving effect
+  {% endcomment %}
+  const isDesktop = window.matchMedia('(min-width: 1280px)').matches;
+
+  (() => {
+    if (!isDesktop) return;
+
+    const image = document.querySelector('[data-variant-image-wrapper]');
+    const moveDistance = 20; // Відстань, на яку зображення буде рухатися
+
+    if (!image) return;
+    document.addEventListener('mousemove', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Розрахунок нових координат для зображення
+      const newX = (x / window.innerWidth) * moveDistance - (moveDistance / 2);
+      const newY = (y / window.innerHeight) * moveDistance - (moveDistance / 2);
+
+      // Застосування трансформації до зображення
+      image.style.transform = `translate(${-newX}px, ${-newY}px)`;
+    });
+  })(window)
+
+</script>
+
+<script type="text/javascript" async src="{{ 'VariantPicker2.js' | asset_url }}"></script>
+<script type="text/javascript" async src="{{ 'ProductForm2.js' | asset_url }}"></script>

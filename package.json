@@ -1,0 +1,16 @@
+{
+  "name": "shopify-landing-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tw:build": "npx tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --watch\n",
+    "shopify:dev": "shopify theme dev --store svr-temp.myshopify.com"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}

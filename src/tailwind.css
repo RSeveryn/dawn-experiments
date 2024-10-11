@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body, html {
+    @apply text-base m-0 p-0 text-body-1 leading-normal font-sf tracking-normal	;
+  }
+  a {
+    @apply no-underline text-inherit;
+  }
+  button {
+    @apply p-0 m-0 border-none bg-none cursor-pointer;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    @apply m-0 p-0;
+  }
+  div:empty {
+    @apply block;
+  }
+}
+
+@layer components {
+  .b-section-paddings {
+    @apply pt-[--section-mobile-padding-top,0] pb-[--section-mobile-padding-bottom,0]
+    pl-[--section-mobile-padding-left,0] pr-[--section-mobile-padding-right,0]
+    md:pt-[--section-tablet-padding-top,0] md:pb-[--section-tablet-padding-bottom,0]
+    md:pl-[--section-tablet-padding-left,0] md:pr-[--section-tablet-padding-right,0]
+    xl:pt-[--section-desktop-padding-top,0] xl:pb-[--section-desktop-padding-bottom,0]
+    xl:pl-[--section-desktop-padding-left,0] xl:pr-[--section-desktop-padding-right,0];
+  }
+  .b-btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm transition-colors duration-200;
+  }
+  .b-primary-btn {
+    @apply text-white bg-btn-primary rounded-[80px]
+    leading-[1.14] font-bold hover:bg-btn-secondary;
+  }
+  .b-secondary-btn {
+    @apply text-[#F8F8F8] bg-btn-secondary rounded-[100px]
+    leading-[1.14] font-bold hover:bg-btn-primary md:px-5 md:py-2.5 md:text-base;
+  }
+  .b-btn-with-icon {
+    @apply items-end pb-2.5 md:pb-3 md:items-center;
+  }
+  .b-btn-atc-responsive {
+    @apply text-[.875em] px-[1em] py-[.5em] pb-[.625em] md:px-7 md:py-3 md:text-[22px];
+  }
+}
+
+@layer utilities {
+  .b-text-responsive {
+    font-size: 3.7vw;
+
+    @media (min-width: 375px) {
+        font-size: clamp(1rem, 3.7vw, 1.2rem);
+    }
+  }
+}
